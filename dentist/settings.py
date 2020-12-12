@@ -88,8 +88,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2cbvpd9jttsjh',
+        'USER': 'eephhfprecerin',
+        'PASSWORD': 'fe64fb969c7d61ecbea4683a1cb69a642f06ed845030f84f6f1b8cd44c45b2da',
+        'HOST': 'ec2-54-205-248-255.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
 
