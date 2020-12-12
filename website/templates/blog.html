@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_extras %}
+  <meta name="description" content="Blog - Dr. Juan Rossi - Centros y Estudios Odontológicos - Santa Clara De Buena Vista">
+{% endblock meta_extras %}
+
+{% block title %}Blog{% endblock title %}
+
+
+
+{% block content %}
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'website/img/bg-img/38.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Blog</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+  
+  <!-- *****Blog Area Start ***** -->
+  <section class="dento-blog-area mt-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          {% for post in posts_blog %}
+          <!-- Single Blog Item -->
+          <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
+            <!-- Blog Thumbnail -->
+            <div class="blog-thumbnail">
+              <a href="{% url 'detallepost' post.slug %}">
+                <img src="{{ post.imagen }}" alt="">
+              </a>
+            </div>
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a href="{% url 'detallepost' post.slug %}" class="post-title">{{ post.titulo }}</a>
+              <p>{{ post.descripcion }}</p>
+              <div class="post-meta">
+                <a href="#"><i class="icon_clock_alt"></i> {{ post.fecha_creacion }}</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+    
+          <!-- Pagination -->
+          <nav class="dento-pagination mb-100">
+            
+            <ul class="pagination">
+            {% if posts_blog.has_previous %}
+              <li class="page-item"><a class="btn dento-btn" href="?page={{ posts_blog.previous_page_number }}{% if request.GET.search %} &q={{ request.GET.search }}{% endif %}">← Siguientes posts</a></li>
+            {% endif %}
+            &nbsp;
+            {% if posts_blog.has_next %}
+              <li class="page-item"><a class="btn dento-btn" href="?page={{ posts_blog.next_page_number }}{% if request.GET.search %} &q={{ request.GET.search }}{% endif %}">Anteriores posts →</a></li>
+            {% endif %}
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Dento Sidebar Area -->
+        <div class="col-12 col-lg-4">
+          <div class="dento-sidebar">
+
+            <!-- Single Widget Area -->
+            <div class="single-widget-area search-widget">
+              <form method="get">
+                <input type="search" class="form-control" placeholder="Buscar..." name="buscar" value = "{{request.GET.buscar}}">
+                <button type="submit"><i class="icon_search"></i></button>
+              </form>
+            </div>
+
+            <!-- Single Widget Area -->
+            {% if posts %}
+            <div class="single-widget-area news-widget">
+              <h5 class="widget-title">Otros Posts</h5>
+
+              {% for post in posts %}
+              <!-- Single News Area -->
+              <div class="single-news-area d-flex align-items-center">
+                <div class="blog-thumbnail">
+                  <img src="{{post.imagen}}" alt="">
+                </div>
+                <div class="blog-content">
+                  <a href="{{post.slug}}" class="post-title">{{post.titulo}}</a>
+                  <span class="post-date">{{ post.fecha_creacion|date:"d/m/Y" }}</span>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- *****Blog Area End ***** -->
+
+{% endblock content %}

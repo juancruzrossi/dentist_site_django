@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta_extras %}
+  <meta name="description" content="Dr. Juan Rossi - Centros y Estudios Odontológicos - Santa Clara De Buena Vista">
+{% endblock meta_extras %}
+
+{% block title %}Página No Encontrada{% endblock title %}
+
+{% block content %}
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'website/img/bg-img/12.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Página No Encontrada</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Página No Encontrada</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+
+  <!-- ***** Contact Area Start ***** -->
+
+  <center>
+    <h1>¡Oops! Página No Encontrada</h1>
+    <p>No te preocupes, mientras tanto, puedes navegar por nuestro <a href="{% url 'blog' %}">blog</a> y conocer los mejores consejos para una sonrisa perfecta, una dentadura saludable y mucho más!</p>
+  </center>
+  <hr>
+  <!-- ***** Contact Area End ***** -->
+  {% endblock content %}

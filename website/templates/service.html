@@ -1,0 +1,125 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block meta_extras %}
+  <meta name="description" content="Servicios - Dr. Juan Rossi - Centros y Estudios Odontológicos - Santa Clara De Buena Vista">
+{% endblock meta_extras %}
+
+{% block title %}Servicios{% endblock title %}
+
+{% block nosotros %}{% endblock nosotros %}
+{% block servicios %}{% endblock servicios %}
+{% block contacto %}{% endblock contacto %}
+{% block como_llegar %}{% endblock como_llegar %}
+
+
+{% block inicio %}
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'website/img/bg-img/20.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Servicios</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+  <!-- ***** Services Area Start ***** -->
+  <section class="dento-services-area mt-50 mb-50">
+    <div class="container">
+      <div class="row">
+
+        <!-- Single Service Area -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service--area text-center mb-50">
+            <div class="icon--">
+              <img src="{% static 'website/img/core-img/s6.png' %}" alt="">
+            </div>
+            <h5>Odontolgía General</h5>
+            <p>Brindamos los servicios dentales más avanzados disponibles para nuestros pacientes y los ayudamos a obtener una boca sana y las magníficas sonrisas que desean.
+            </p>
+          </div>
+        </div>
+
+        <!-- Single Service Area -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service--area text-center mb-50">
+            <div class="icon--">
+              <img src="{% static 'website/img/core-img/s7.png' %}" alt="">
+            </div>
+            <h5>Implantes</h5>
+            <p>Los implantes dentales son una forma popular y eficaz de reemplazar los dientes perdidos. Si goza de buena salud en general, este tratamiento puede ser una opción para usted.
+            </p>
+          </div>
+        </div>
+
+        <!-- Single Service Area -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service--area text-center mb-50">
+            <div class="icon--">
+              <img src="{% static 'website/img/core-img/s8.png' %}" alt="">
+            </div>
+            <h5>Transformaciones Dentales</h5>
+            <p>Somos altamente capacitados y experimentados en una variedad de técnicas de restauración y podemos ayudarlo a reemplazar los dientes perdidos, restaurar los dientes dañados y mucho más.</p>
+          </div>
+        </div>
+
+        <!-- Single Service Area -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service--area text-center mb-50">
+            <div class="icon--">
+              <img src="{% static 'website/img/core-img/s9.png' %}" alt="">
+            </div>
+            <h5>Odontolgía Pediátrica</h5>
+            <p>Nuestra principal prioridad es llevar a los más chicos por el camino correcto hacia una higiene bucal adecuada. ¡Creemos que la educación temprana prepara a los niños para una vida de excelente salud dental!
+            </p>
+          </div>
+        </div>
+
+        <!-- Single Service Area -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service--area text-center mb-50">
+            <div class="icon--">
+              <img src="{% static 'website/img/core-img/s10.png' %}" alt="">
+            </div>
+            <h5>Odontolgía Cosmética</h5>
+            <p>Podemos remodelar sus dientes, cerrar espacios, restaurar dientes gastados o cortos o alterar la longitud de sus dientes. Todo nuestro objetivo es restaurar la belleza natural de los dientes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Single Service Area -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-service--area text-center mb-50">
+            <div class="icon--">
+              <img src="{% static 'website/img/core-img/s6.png' %}" alt="">
+            </div>
+            <h5>Ortodoncias</h5>
+            <p>Los beneficios del tratamiento de ortodoncia incluyen una boca más saludable, una apariencia más agradable y dientes que tienen más probabilidades de durar toda la vida.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ***** Services Area End ***** -->
+{% endblock inicio %}
+

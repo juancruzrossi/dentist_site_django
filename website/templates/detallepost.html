@@ -1,0 +1,116 @@
+{% extends 'blog.html' %}
+{% load static %}
+
+{% block meta_extras %}
+  <meta name="description" content="{{ detallepost.titulo }} - Dr. Juan Rossi - Centros y Estudios Odontológicos - Santa Clara De Buena Vista">
+  <meta property="og:url"           content="http://127.0.0.1:8000/blog/{{ detallepost.slug }}" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="{{ detallepost.titulo }}" />
+  <meta property="og:description"   content="{{ detallepost.descripcion }}" />
+  <meta property="og:image"         content="{{ detallepost.imagen }}" />
+{% endblock meta_extras %}
+
+{% block title %}{{detallepost.titulo}}{% endblock title %}
+
+{% block content %}
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v9.0" nonce="JRbqtsfb"></script>
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({{detallepost.imagen}});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Tips y recomendaciones</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Inicio</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'blog' %}"></i> Blog</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{detallepost.titulo}}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+  <!-- ****** Blog Area Start ******* -->
+  <section class="dento--blog-area mt-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mb-100">
+          <!-- Blog Details Area -->
+          <div class="blog-details-area">
+            
+            <div class="post-meta">
+              <a><i class="icon_clock_alt"></i> {{ detallepost.fecha_creacion|date:"d/m/Y" }}</a>
+            </div>
+            <h2 class="post-title">{{detallepost.titulo}}</h2>
+            <img src="{{ detallepost.imagen }}" alt="">
+            
+            {{detallepost.contenido|safe}}
+            <hr>
+            
+            <!-- Your share button code -->
+            <div class="fb-share-button" data-href="https://drjuanrossi.herokuapp.com/blog/{{ detallepost.slug }}" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+          </div>
+        </div>
+        
+
+        <!-- Dento Sidebar Area -->
+        <div class="col-12 col-lg-4">
+          <div class="dento-sidebar">
+
+            <!-- Single Widget Area -->
+            <div class="single-widget-area search-widget">
+              <form method="get">
+                <input type="search" class="form-control" placeholder="Buscar..." name="buscar" value = "{{request.GET.buscar}}">
+                <button type="submit"><i class="icon_search"></i></button>
+              </form>
+            </div>
+
+            <!-- Single Widget Area -->
+            {% if posts %}
+            <div class="single-widget-area news-widget">
+              <h5 class="widget-title">Últimos Posts</h5>
+
+              {% for post in posts %}
+              <!-- Single News Area -->
+              <div class="single-news-area d-flex align-items-center">
+                <div class="blog-thumbnail">
+                  <img src="{{post.imagen}}" alt="">
+                </div>
+                <div class="blog-content">
+                  <a href="{{post.slug}}" class="post-title">{{post.titulo}}</a>
+                  <span class="post-date">{{ post.fecha_creacion|date:"d/m/Y" }}</span>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{ detallepost.slug }}" data-numposts="10" data-width=""></div>
+            <!-- Publicidad 
+            <div class="single-widget-area adds-widget">
+              <a href="#"><img class="w-100" src="{% static 'website/img/bg-img/adds.png' %}" alt=""></a>
+            </div>
+            -->
+      </div>
+    </div>
+  </section>
+  <!-- ****** Blog Area End ******* -->
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,41 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block meta_extras %}
+  <meta name="description" content="Nosotros - Dr. Juan Rossi - Centros y Estudios Odontológicos - Santa Clara De Buena Vista">
+{% endblock meta_extras %}
+
+{% block title %}Nosotros{% endblock title %}
+
+
+{% block servicios %}{% endblock servicios %}
+{% block contacto %}{% endblock contacto %}
+{% block como_llegar %}{% endblock como_llegar %}
+
+{% block inicio %}
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'website/img/bg-img/42.jpg' %});">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Nosotros</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Nosotros</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+{% endblock inicio %}
