@@ -89,10 +89,10 @@ AUTH_PASSWORD_VALIDATORS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd2cbvpd9jttsjh',
-        'USER': 'eephhfprecerin',
-        'PASSWORD': 'fe64fb969c7d61ecbea4683a1cb69a642f06ed845030f84f6f1b8cd44c45b2da',
-        'HOST': 'ec2-54-205-248-255.compute-1.amazonaws.com',
+        'NAME': 'd3rdplcfe7b1d',
+        'USER': 'mmgkugmypgqrnx',
+        'PASSWORD': '8b288e48f3983cbd97ecb9f01af2eb233a40c4faed48ea053f9cde58b50fe939',
+        'HOST': 'ec2-3-216-89-250.compute-1.amazonaws.com',
         'PORT': 5432,
     }
 }
