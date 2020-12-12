@@ -1,1 +1,1 @@
-web: gunicorn dentist.wsgi heroku run python manage.py collectstatic --noinput
+web: gunicorn dentist.wsgi
