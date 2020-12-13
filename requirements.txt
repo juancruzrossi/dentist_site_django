@@ -15,7 +15,8 @@ jdcal==1.4.1
 MarkupPy==1.14
 odfpy==1.4.1
 openpyxl==3.0.5
-psycopg2==2.8.6
+#psycopg2==2.8.6
+psycopg2-binary
 python-decouple==3.3
 pytz==2020.4
 PyYAML==5.3.1
