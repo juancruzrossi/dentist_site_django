@@ -26,7 +26,7 @@ def contact(request):
         #sending email
         send_mail(
             'Email de: ' + your_name, #subject, in this case, the name
-            message + '\n \n' + 'Numero de telefono: ' + message_phone, #message
+            message + '\n \n' + 'Número de teléfono para contactar: ' + message_phone, #message
             email_from, #from email
             recipient_list
         )
@@ -70,7 +70,7 @@ def appointment(request):
         #sending email
         send_mail(
             'Consulta de: ' + your_name, #subject, in this case, the name
-            your_message + '\n \n' + 'Numero de telefono de ' + your_name + ': ' + your_phone, #message
+            your_message + '\n \n' + 'Número de teléfono para contactar: ' + your_phone, #message
             email_from, #from email
             recipient_list
         )

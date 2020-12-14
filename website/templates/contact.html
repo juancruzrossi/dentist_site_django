@@ -93,16 +93,17 @@
               {% csrf_token %}
               <div class="row">
                 <div class="col-lg-6">
-                  <input type="text" name="message-name" class="form-control mb-30" placeholder="Nombre y Apellido">
+                  <input type="text" name="message-name" class="form-control mb-30" placeholder="Nombre y Apellido" required>
                 </div>
                 <div class="col-lg-6">
-                  <input type="text" name="message-phone" class="form-control mb-30" placeholder="Número De Teléfono">
+                  <input type="text" name="message-phone" class="form-control mb-30" placeholder="Número De Teléfono" required>
                 </div>
                 <div class="col-12">
-                  <textarea name="message" class="form-control mb-30" placeholder="Mensaje"></textarea>
+                  <textarea name="message" class="form-control mb-30" placeholder="Mensaje" required></textarea>
                 </div>
-                <div class="col-12">
+                <div class="col-12-inline">
                   <button type="submit" class="btn dento-btn">Enviar Mensaje</button>
+                  <a href="https://wa.me/5493404504730" target="_blank" rel="noopener noreferrer" class="btn dento-btn active"> O... escribinos por whatsapp</a>
                 </div>
               </div>
             </form>
