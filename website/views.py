@@ -21,7 +21,7 @@ def contact(request):
         message_phone = request.POST["message-phone"]
         message = request.POST["message"]
         email_from = "¡Nueva consulta desde tu página web! <dr.rossi.ceo@gmail.com>"
-        recipient_list = ['jcrzrossi@gmail.com',]
+        recipient_list = ['jr.ceo@hotmail.com.ar',]
       
         #sending email
         send_mail(
@@ -65,7 +65,7 @@ def appointment(request):
         your_phone = request.POST["your-phone"]
         your_message = request.POST["your-message"]
         email_from = "¡Nueva consulta desde tu página web! <dr.rossi.ceo@gmail.com>"
-        recipient_list = ['jcrzrossi@gmail.com',]
+        recipient_list = ['jr.ceo@hotmail.com.ar',]
       
         #sending email
         send_mail(

@@ -5,6 +5,22 @@ from decouple import config
 from pathlib import Path
 
 
+import environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
+
+# False if not in os.environ
+DEBUG = env('DEBUG')
+
+# Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
+SECRET_KEY = env('SECRET_KEY')
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -12,10 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n40gsu0!v=$hu+u()y7sdla$ca7@4=iimveg%g4u%_h07%r0db'
 
-DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -87,25 +100,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-"""
-#local
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-"""
 
 #production
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3rdplcfe7b1d',
-        'USER': 'mmgkugmypgqrnx',
-        'PASSWORD': '8b288e48f3983cbd97ecb9f01af2eb233a40c4faed48ea053f9cde58b50fe939',
-        'HOST': 'ec2-3-216-89-250.compute-1.amazonaws.com',
-        'PORT': 5432,
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PW'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -143,8 +147,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dr.rossi.ceo@gmail.com'
-EMAIL_HOST_PASSWORD = 'jrr258901'
+EMAIL_HOST_USER = env('EMAIL_HOST')
+EMAIL_HOST_PASSWORD = env('PW_HOST')
 EMAIL_USE_TLS = True
 
 
